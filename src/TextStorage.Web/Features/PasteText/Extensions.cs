@@ -14,7 +14,7 @@ public static class Extensions
                 Content = request.Content,
                 Password = request.Password,
                 ExpiresOn = request.ExpiresOn,
-                ShortenCode = $"{context.ConnectionPrefix} - {Random.Shared.Next(111111, int.MaxValue)}"
+                ShortenCode = $"{context.ConnectionPrefix}-{Random.Shared.Next(111111, int.MaxValue)}"
             };
 
             await context.AddAsync(text);

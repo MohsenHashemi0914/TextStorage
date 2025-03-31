@@ -18,19 +18,19 @@ public sealed class TextStorageDbContext : DbContext
         Database.SetConnectionString(_tenant.ConnectionString);
     }
 
-    public string ConnectionPrefix => _tenant.GetConnectionPrefix();
-
     public DbSet<Text> Texts { get; set; }
+
+    public string ConnectionPrefix => _tenant.GetConnectionPrefix();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Text>().HasKey(x => x.Id);
-        modelBuilder.Entity<Text>().Property(x => x.ShortenCode)
-                                   .HasMaxLength(1000);
-        modelBuilder.Entity<Text>().HasIndex(x => x.ShortenCode)
-                                   .IsUnique();
-        modelBuilder.Entity<Text>().Property(x => x.Password)
-                                   .HasMaxLength(20);
+        modelBuilder.Entity<Text>(entity =>
+        {
+            entity.HasKey(x => x.Id);
+            entity.HasIndex(x => x.ShortenCode).IsUnique();
+            entity.Property(x => x.Password).HasMaxLength(20);
+            entity.Property(x => x.ShortenCode).HasMaxLength(1000);
+        });
 
         base.OnModelCreating(modelBuilder);
     }

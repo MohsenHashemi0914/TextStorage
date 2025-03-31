@@ -15,13 +15,7 @@ builder.Services.AddSingleton<LoadBalancer>(sp =>
     return new([connections.Master1, connections.Master2, connections.Master3]);
 });
 
-//builder.Services.AddScoped(sp =>
-//{
-//    var loadBalancer = sp.GetRequiredService<LoadBalancer>();
-//    return loadBalancer.GetTenant();
-//});
-
-builder.Services.AddDbContext<TextStorageDbContext>((sp, options) =>
+builder.Services.AddDbContext<TextStorageDbContext>(options =>
 {
     options.UseSqlServer();
 });

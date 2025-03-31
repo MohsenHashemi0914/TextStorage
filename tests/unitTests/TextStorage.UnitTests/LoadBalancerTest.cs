@@ -18,29 +18,36 @@ public class LoadBalancerTest
         var tenant = _sut.GetTenant();
         tenant.Id.Should().Be(1);
         tenant.ConnectionString.Should().Be("Master1");
+        tenant.GetConnectionPrefix().Should().Be("1M");
 
         tenant = _sut.GetTenant();
         tenant.Id.Should().Be(2);
         tenant.ConnectionString.Should().Be("Master2");
+        tenant.GetConnectionPrefix().Should().Be("2M");
 
         tenant = _sut.GetTenant();
         tenant.Id.Should().Be(3);
         tenant.ConnectionString.Should().Be("Master3");
+        tenant.GetConnectionPrefix().Should().Be("3M");
 
         tenant = _sut.GetTenant();
         tenant.Id.Should().Be(1);
         tenant.ConnectionString.Should().Be("Master1");
+        tenant.GetConnectionPrefix().Should().Be("1M");
 
         tenant = _sut.GetTenant();
         tenant.Id.Should().Be(2);
         tenant.ConnectionString.Should().Be("Master2");
+        tenant.GetConnectionPrefix().Should().Be("2M");
 
         tenant = _sut.GetTenant();
         tenant.Id.Should().Be(3);
         tenant.ConnectionString.Should().Be("Master3");
+        tenant.GetConnectionPrefix().Should().Be("3M");
 
         tenant = _sut.GetTenant();
         tenant.Id.Should().Be(1);
         tenant.ConnectionString.Should().Be("Master1");
+        tenant.GetConnectionPrefix().Should().Be("1M");
     }
 }

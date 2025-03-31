@@ -37,9 +37,9 @@ public sealed class LoadBalancer(string[] connectionStrings)
         {
             return Id switch
             {
-                1 => "Master1",
-                2 => "Master2",
-                3 => "Master3",
+                1 => "1M",
+                2 => "2M",
+                3 => "3M",
                 _ => throw new InvalidDataException()
             };
         }
