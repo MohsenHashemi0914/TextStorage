@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E7676926-E8D5-4615-8DBA-32956841A5B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextStorage.Web", "src\TextStorage.Web\TextStorage.Web.csproj", "{4383CB1D-0BE1-47A3-8904-AFCB8BE0945A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A8B48308-C809-4CF7-9DB0-EC5EB12FE0A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "loadTests", "loadTests", "{B7CD0274-BB6A-424D-A125-E92485BAE2A7}"
+	ProjectSection(SolutionItems) = preProject
+		tests\loadTests\paste.js = tests\loadTests\paste.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unitTests", "unitTests", "{26CB7A1F-1B37-4DE8-ADCA-7C3AC92FEDBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextStorage.UnitTests", "tests\unitTests\TextStorage.UnitTests\TextStorage.UnitTests.csproj", "{554703D5-C2F2-4882-83D6-FC2A6C43623E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4383CB1D-0BE1-47A3-8904-AFCB8BE0945A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4383CB1D-0BE1-47A3-8904-AFCB8BE0945A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4383CB1D-0BE1-47A3-8904-AFCB8BE0945A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4383CB1D-0BE1-47A3-8904-AFCB8BE0945A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{554703D5-C2F2-4882-83D6-FC2A6C43623E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{554703D5-C2F2-4882-83D6-FC2A6C43623E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{554703D5-C2F2-4882-83D6-FC2A6C43623E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{554703D5-C2F2-4882-83D6-FC2A6C43623E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4383CB1D-0BE1-47A3-8904-AFCB8BE0945A} = {E7676926-E8D5-4615-8DBA-32956841A5B5}
+		{B7CD0274-BB6A-424D-A125-E92485BAE2A7} = {A8B48308-C809-4CF7-9DB0-EC5EB12FE0A8}
+		{26CB7A1F-1B37-4DE8-ADCA-7C3AC92FEDBD} = {A8B48308-C809-4CF7-9DB0-EC5EB12FE0A8}
+		{554703D5-C2F2-4882-83D6-FC2A6C43623E} = {26CB7A1F-1B37-4DE8-ADCA-7C3AC92FEDBD}
+	EndGlobalSection
+EndGlobal

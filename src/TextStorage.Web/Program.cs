@@ -1,0 +1,36 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using TextStorage.Web;
+using TextStorage.Web.Features.PasteText;
+using TextStorage.Web.Persistence;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.Configure<AppSettings>(builder.Configuration);
+
+builder.Services.AddSingleton<LoadBalancer>(sp =>
+{
+    var connections = sp.GetRequiredService<IOptions<AppSettings>>().Value.ConnectionStrings;
+    return new([connections.Master1, connections.Master2, connections.Master3]);
+});
+
+//builder.Services.AddScoped(sp =>
+//{
+//    var loadBalancer = sp.GetRequiredService<LoadBalancer>();
+//    return loadBalancer.GetTenant();
+//});
+
+builder.Services.AddDbContext<TextStorageDbContext>((sp, options) =>
+{
+    options.UseSqlServer();
+});
+
+var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseHttpsRedirection();
+app.MapCreateTextEndpouint();
+app.Run();
