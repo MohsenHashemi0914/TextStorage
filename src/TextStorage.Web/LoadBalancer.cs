@@ -27,11 +27,11 @@ public sealed class LoadBalancer(string[] connectionStrings)
         }
     }
 
-    public sealed class TenantPrincipal
+    public sealed record TenantPrincipal
     {
-        public required int Id { get; set; }
+        public required int Id { get; init; }
 
-        public required string ConnectionString { get; set; }
+        public required string ConnectionString { get; init; }
 
         public string GetConnectionPrefix()
         {

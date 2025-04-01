@@ -22,8 +22,8 @@ export default function () {
     };
 
     let response = http.post('http://localhost:5081/texts/paste', JSON.stringify(data), params);
-    var isRequestFailed = check(response, { 'succeeded': (r) => r.status === 200 });
-    if (isRequestFailed) {
+    var isRequestSucceeded = check(response, { 'succeeded': (r) => r.status === 200 });
+    if (!isRequestSucceeded) {
         countOfFailure.add(1);
     }
 
