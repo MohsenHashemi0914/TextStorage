@@ -13,7 +13,7 @@ public static class Extensions
             ReadOnlyTextStorageDbContext context) =>
         {
             context.SetConnectionStringByPrefix(code[0]);
-            var text = await context.Texts.AsNoTracking().FirstOrDefaultAsync(x => x.ShortenCode == code);
+            var text = await context.Texts.FirstOrDefaultAsync(x => x.ShortenCode == code);
             return Results.Ok(text?.Content);
         });
     }
