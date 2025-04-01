@@ -23,7 +23,7 @@ builder.Services.AddDbContext<TextStorageDbContext>(options =>
 
 builder.Services.AddDbContext<ReadOnlyTextStorageDbContext>(options =>
 {
-    options.UseSqlServer();
+    options.UseSqlServer().UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
 var app = builder.Build();
