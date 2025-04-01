@@ -20,7 +20,7 @@ public sealed class TextStorageDbContext : DbContext
 
     public DbSet<Text> Texts { get; set; }
 
-    public string ConnectionPrefix => _tenant.GetConnectionPrefix();
+    public string ConnectionPrefix => _tenant.ConnectionPrefix.ToString();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
