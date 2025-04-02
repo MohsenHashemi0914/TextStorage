@@ -14,6 +14,8 @@ public static class Extensions
             IDistributedCache distributedCache,
             IServiceScopeFactory scopeFactory) =>
         {
+            // check code validation first!
+
             var content = await distributedCache.GetStringAsync(code);
             if (!string.IsNullOrWhiteSpace(content))
             {
@@ -22,7 +24,7 @@ public static class Extensions
             
             using var scope = scopeFactory.CreateScope();
             using var context = scope.ServiceProvider.GetRequiredService<ReadOnlyTextStorageDbContext>();
-            context.SetConnectionStringByPrefix(code[0]); // check validation first!
+            context.SetConnectionStringByPrefix(code[0]);
 
             var text = await context.Texts.FirstOrDefaultAsync(x => x.ShortenCode == code);
             if (text is null)
