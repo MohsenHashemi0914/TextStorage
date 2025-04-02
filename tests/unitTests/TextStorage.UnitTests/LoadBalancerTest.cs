@@ -50,4 +50,14 @@ public class LoadBalancerTest
         tenant.ConnectionString.Should().Be("Master1");
         tenant.ConnectionPrefix.ToString().Should().Be("a");
     }
+
+    [Fact]
+    public void Get_All_Prefixes_Test()
+    {
+        var prefixes = _sut.GetAllPrefixes();
+        prefixes.Should().HaveCount(3);
+        prefixes[0].ToString().Should().Be("a");
+        prefixes[1].ToString().Should().Be("b");
+        prefixes[2].ToString().Should().Be("c");
+    }
 }

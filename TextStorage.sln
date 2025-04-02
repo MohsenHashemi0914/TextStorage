@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "loadTests", "loadTests", "{B7CD0274-BB6A-424D-A125-E92485BAE2A7}"
 	ProjectSection(SolutionItems) = preProject
 		tests\loadTests\paste.js = tests\loadTests\paste.js
+		tests\loadTests\reading.js = tests\loadTests\reading.js
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unitTests", "unitTests", "{26CB7A1F-1B37-4DE8-ADCA-7C3AC92FEDBD}"

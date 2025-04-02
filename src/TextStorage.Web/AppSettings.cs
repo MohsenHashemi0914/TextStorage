@@ -2,6 +2,8 @@
 
 public sealed class AppSettings
 {
+    public required string RedisConnection { get; set; }
+
     public required Connections ConnectionStrings { get; set; }
 
     public sealed class Connections

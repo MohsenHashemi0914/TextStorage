@@ -9,6 +9,11 @@ public sealed class LoadBalancer(string[] connectionStrings)
     private readonly int _length = connectionStrings.Length;
     private int _currentPosition = 1;
 
+    public IReadOnlyList<char> GetAllPrefixes()
+    {
+        return [.. connectionStrings.Select((x, index) => (char)(index + FIRST_CHAR_NUMBER))];
+    }
+
     public TenantPrincipal GetTenant()
     {
         lock (_locker)

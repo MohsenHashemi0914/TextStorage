@@ -16,12 +16,6 @@ public sealed class ReadOnlyTextStorageDbContext : DbContext
         Database.SetConnectionString(_loadBalancer.GetTenant().ConnectionString);
     }
 
-    internal void SetConnectionStringByPrefix(char prefix)
-    {
-        var tenant = _loadBalancer.GetTenantByPrefix(prefix);
-        Database.SetConnectionString(tenant.ConnectionString);
-    }
-
     public DbSet<Text> Texts { get; set; }
 
     public override int SaveChanges()
@@ -42,5 +36,11 @@ public sealed class ReadOnlyTextStorageDbContext : DbContext
     public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
     {
         throw new InvalidOperationException();
+    }
+
+    internal void SetConnectionStringByPrefix(char prefix)
+    {
+        var tenant = _loadBalancer.GetTenantByPrefix(prefix);
+        Database.SetConnectionString(tenant.ConnectionString);
     }
 }

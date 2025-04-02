@@ -4,11 +4,17 @@ using TextStorage.Web;
 using TextStorage.Web.Features.PasteText;
 using TextStorage.Web.Features.Reading;
 using TextStorage.Web.Persistence;
+using TextStorage.Web.Workers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<AppSettings>(builder.Configuration);
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    var redisConnection = builder.Configuration[nameof(AppSettings.RedisConnection)];
+    options.Configuration = redisConnection; 
+});
 
 builder.Services.AddSingleton<LoadBalancer>(sp =>
 {
@@ -25,6 +31,8 @@ builder.Services.AddDbContext<ReadOnlyTextStorageDbContext>(options =>
 {
     options.UseSqlServer().UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
+
+builder.Services.AddHostedService<TextStorageCleanupBacgroundService>();
 
 var app = builder.Build();
 
