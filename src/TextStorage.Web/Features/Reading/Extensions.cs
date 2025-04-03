@@ -7,7 +7,7 @@ namespace TextStorage.Web.Features.Reading;
 
 public static class Extensions
 {
-    public static void MapReadingEndpouint(this IEndpointRouteBuilder endpoint)
+    public static void MapReadingEndpoint(this IEndpointRouteBuilder endpoint)
     {
         endpoint.MapGet("/texts/{code}", async (
             [FromRoute(Name = nameof(code))] string code,

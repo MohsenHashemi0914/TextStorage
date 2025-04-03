@@ -5,7 +5,7 @@ namespace TextStorage.Web.Features.PasteText;
 
 public static class Extensions
 {
-    public static void MapCreateTextEndpouint(this IEndpointRouteBuilder endpoint)
+    public static void MapCreateTextEndpoint(this IEndpointRouteBuilder endpoint)
     {
         endpoint.MapPost("/texts/paste", async (CreateTextRequestModel request, TextStorageDbContext context) =>
         {

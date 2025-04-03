@@ -40,6 +40,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-app.MapCreateTextEndpouint();
-app.MapReadingEndpouint();
+app.MapCreateTextEndpoint();
+app.MapReadingEndpoint();
 app.Run();
